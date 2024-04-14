@@ -1,0 +1,21 @@
+# 0.0 버전만 지원하고 있습니다.
+version: 0.0
+os: linux
+
+# 배포할 파일 및 디렉토리를 정의합니다.
+files:
+  - source: /
+    destination: /home/ec2-user/aws-study
+
+# 권한을 정의합니다.
+permissions:
+  - object: /home/ec2-user/aws-study/
+    owner: ec2-user
+    group: ec2-user
+
+# 배포단계에서 진행하는 훅 스크립트를 정의합니다.
+hooks:
+  AfterInstall:
+    - location: scripts/deploy.sh
+      timeout: 60
+      runas: ec2-user

@@ -1,0 +1,17 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: "jdbc:mysql://ec2-13-209-69-201.ap-northeast-2.compute.amazonaws.com:3306/library"
+    username: "root"
+    password: "Abcd1234@"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect

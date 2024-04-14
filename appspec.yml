@@ -6,6 +6,7 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/aws-study
+    overwrite: yes
 
 # 권한을 정의합니다.
 permissions:

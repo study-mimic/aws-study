@@ -8,6 +8,8 @@ name: aws-study-project
 on:
   push:
     branches: [ "main" ]
+
+
 #------------------------------------------------
 #  PROJECT_NAME: 프로젝트 이름 설정. S3경로 설정에 사용.
 #  BUCKET_NAME: 앞에서 생성한 S3 버킷이름
@@ -46,12 +48,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
       # Gradle 스크립트 실행 전 실행 권한을 부여합니다.
       - name: gradlew 권한 부여, 빌드
-        run:  |
+        run: |
           chmod +x ./gradlew
-          ./gradlew bootJar
+          ./gradlew build -x test 
+
 
       #------------------------------------------------
 
@@ -79,3 +81,5 @@ jobs:
           --deployment-config-name CodeDeployDefault.AllAtOnce
           --deployment-group-name $DEPLOYMENT_GROUP_NAME
           --s3-location bucket=$BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+
+#------------------------------------------------

@@ -13,7 +13,7 @@ public class UserLoanHistory {
 
   @JoinColumn(nullable = false)
   @ManyToOne
-  private User user;
+  private User users;
 
   private String bookName;
 
@@ -23,8 +23,8 @@ public class UserLoanHistory {
 
   }
 
-  public UserLoanHistory(User user, String bookName) {
-    this.user = user;
+  public UserLoanHistory(User users, String bookName) {
+    this.users = users;
     this.bookName = bookName;
     this.isReturn = false;
   }

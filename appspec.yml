@@ -16,6 +16,6 @@ permissions:
 # 배포단계에서 진행하는 훅 스크립트를 정의합니다.
 hooks:
   AfterInstall:
-    - location: scripts/deploy.sh
+    - location: deploy.sh
       timeout: 60
       runas: ec2-user

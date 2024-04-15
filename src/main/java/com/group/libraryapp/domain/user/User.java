@@ -21,7 +21,7 @@ public class User {
 
   private Integer age;
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "user")
   private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
   public User(String name, Integer age) {
